@@ -1,6 +1,6 @@
-# Nuxt Minimal Starter
+# buh-assist-client
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Nuxt web app
 
 ## Setup
 
