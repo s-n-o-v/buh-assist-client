@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@primevue/nuxt-module',
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ],
   imports: {
     dirs: ["composables"],
