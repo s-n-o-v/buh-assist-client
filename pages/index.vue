@@ -1,8 +1,11 @@
 <script setup lang="ts">
-// definePageMeta({ middleware: "auth" });
+definePageMeta({ middleware: "auth" });
 useHead({
   title: "Dashboard",
 });
+
+// const { data } = await useFetch('/api/auth/profile');
+// console.log('data', data);
 </script>
 
 <template>
