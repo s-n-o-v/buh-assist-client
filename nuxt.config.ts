@@ -1,11 +1,13 @@
+import { defineNuxtConfig, NuxtConfig } from 'nuxt/config';
 import Aura from '@primeuix/themes/aura';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
+const config: NuxtConfig = ({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   ssr: true,
   modules: [
-    '@nuxt/eslint',
+    '@nuxtjs/eslint-module',
     '@primevue/nuxt-module',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
@@ -15,9 +17,6 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     apiBaseUrl: process.env.API_BASE_URL,
-    public: {
-      // locals
-    },
   },
   css: [
     '~/assets/tailwind.css',
@@ -45,4 +44,6 @@ export default defineNuxtConfig({
       }
     },
   },
-})
+});
+
+export default defineNuxtConfig(config);

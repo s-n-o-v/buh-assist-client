@@ -1,4 +1,6 @@
 {
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "extends": ["./.nuxt/tsconfig.json"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext", // or 'es2022', 'system', 'node16', 'nodenext', or 'preserve'
@@ -15,6 +17,7 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
+    "types": ["@types/node"],
     // "paths": {
     //   "#imports": [".nuxt/imports.d.ts"]
     // },
@@ -26,6 +29,4 @@
     ".nuxt/nuxt.d.ts",
     "./**/*"
   ],
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": ["./.nuxt/tsconfig.json"]
 }
