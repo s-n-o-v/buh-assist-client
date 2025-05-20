@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
   const method = event.node.req.method;
   let response = null;
 
-  const url = `/clients`;
+  const url = `/organizations`;
   if (method === 'GET') {
     if (path === "list") {
       response = await fetchWithAuth(event, url);
@@ -17,10 +17,10 @@ export default defineEventHandler(async (event) => {
         response = await fetchWithAuth(event, url, { method: "POST", body });
         break;
       case "update":
-        response = await fetchWithAuth(event, url, { method: "PATCH", body });
+        response = await fetchWithAuth(event, `${url}/${body.id}`, { method: "PATCH", body });
         break;
       case "remove":
-        response = await fetchWithAuth(event, url, { method: "DELETE", body });
+        response = await fetchWithAuth(event, `${url}/${body.id}`, { method: "DELETE" });
         break;
     }
   }

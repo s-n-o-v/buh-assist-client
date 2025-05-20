@@ -7,7 +7,6 @@ const config: NuxtConfig = ({
   devtools: { enabled: true },
   ssr: true,
   modules: [
-    '@nuxtjs/eslint-module',
     '@primevue/nuxt-module',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',

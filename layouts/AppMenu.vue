@@ -12,7 +12,6 @@ const model = ref([
         label: 'UI Components',
         items: [
             { label: 'Clients', icon: 'pi pi-fw pi-id-card', to: '/clients' },
-            { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/' },
             // { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
             // { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
             // { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
@@ -28,114 +27,33 @@ const model = ref([
             // { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
         ]
     },
-    // {
-    //     label: 'Pages',
-    //     icon: 'pi pi-fw pi-briefcase',
-    //     to: '/',
-    //     items: [
-    //         {
-    //             label: 'Landing',
-    //             icon: 'pi pi-fw pi-globe',
-    //             to: '/landing'
-    //         },
-    //         {
-    //             label: 'Auth',
-    //             icon: 'pi pi-fw pi-user',
-    //             items: [
-    //                 {
-    //                     label: 'Login',
-    //                     icon: 'pi pi-fw pi-sign-in',
-    //                     to: '/auth/login'
-    //                 },
-    //                 {
-    //                     label: 'Error',
-    //                     icon: 'pi pi-fw pi-times-circle',
-    //                     to: '/auth/error'
-    //                 },
-    //                 {
-    //                     label: 'Access Denied',
-    //                     icon: 'pi pi-fw pi-lock',
-    //                     to: '/auth/access'
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             label: 'Crud',
-    //             icon: 'pi pi-fw pi-pencil',
-    //             to: '/crud'
-    //         },
-    //         {
-    //             label: 'Not Found',
-    //             icon: 'pi pi-fw pi-exclamation-circle',
-    //             to: '/notfound'
-    //         },
-    //         {
-    //             label: 'Empty',
-    //             icon: 'pi pi-fw pi-circle-off',
-    //             to: '/empty'
-    //         }
-    //     ]
-    // },
-    // {
-    //     label: 'Hierarchy',
-    //     items: [
-    //         {
-    //             label: 'Submenu 1',
-    //             icon: 'pi pi-fw pi-bookmark',
-    //             items: [
-    //                 {
-    //                     label: 'Submenu 1.1',
-    //                     icon: 'pi pi-fw pi-bookmark',
-    //                     items: [
-    //                         { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark' },
-    //                         { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
-    //                         { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
-    //                     ]
-    //                 },
-    //                 {
-    //                     label: 'Submenu 1.2',
-    //                     icon: 'pi pi-fw pi-bookmark',
-    //                     items: [{ label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark' }]
-    //                 }
-    //             ]
-    //         },
-    //         {
-    //             label: 'Submenu 2',
-    //             icon: 'pi pi-fw pi-bookmark',
-    //             items: [
-    //                 {
-    //                     label: 'Submenu 2.1',
-    //                     icon: 'pi pi-fw pi-bookmark',
-    //                     items: [
-    //                         { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark' },
-    //                         { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark' }
-    //                     ]
-    //                 },
-    //                 {
-    //                     label: 'Submenu 2.2',
-    //                     icon: 'pi pi-fw pi-bookmark',
-    //                     items: [{ label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
-    //                 }
-    //             ]
-    //         }
-    //     ]
-    // },
-    // {
-    //     label: 'Get Started',
-    //     items: [
-    //         {
-    //             label: 'Documentation',
-    //             icon: 'pi pi-fw pi-book',
-    //             to: '/documentation'
-    //         },
-    //         {
-    //             label: 'View Source',
-    //             icon: 'pi pi-fw pi-github',
-    //             url: 'https://github.com/primefaces/sakai-vue',
-    //             target: '_blank'
-    //         }
-    //     ]
-    // }
+    {
+        label: 'Справочники',
+        icon: 'pi pi-fw pi-briefcase',
+        to: '/',
+        items: [
+            {
+                label: 'Федеральные органы',
+                icon: 'pi pi-fw pi-globe',
+                to: '/clients'
+            },
+            {
+                label: 'Теги',
+                icon: 'pi pi-fw pi-pencil',
+                to: '/tags'
+            },
+            {
+                label: 'Сертификаты',
+                icon: 'pi pi-fw pi-exclamation-circle',
+                to: '/clients'
+            },
+            {
+                label: 'Организации',
+                icon: 'pi pi-fw pi-circle-off',
+                to: '/organizations'
+            }
+        ]
+    },
 ]);
 </script>
 
