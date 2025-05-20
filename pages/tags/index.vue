@@ -26,9 +26,7 @@ const entitiesMapper = (list: any) =>
     return acc;
   }, []);
 const reloadData = async () => {
-  console.log("entering reload");
   const reloaded = await service.list();
-  console.log("realoaded data: ", reloaded.data);
   if (reloaded) entities.value = entitiesMapper(reloaded.data);
 };
 const selectedProduct = () => {};
@@ -42,7 +40,7 @@ const onCreate = () => {
   newDialog.value = true;
 };
 const createEntity = async () => {
-  const res = await service.create(newItem.value);
+  const res = await service.create({ name: newItem.value});
   if (res?.data?.id) {
     toast.add({
       severity: 'success',
