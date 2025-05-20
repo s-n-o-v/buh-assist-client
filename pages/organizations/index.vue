@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { FilterMatchMode } from "@primevue/core/api";
 import { OrganizationService } from "~/service/org-service";
-import type { ITag } from "~/types/ITag";
+import type { IOrganization } from "~/types/IOrganization";
 
 definePageMeta({ middleware: 'auth' });
 
@@ -9,7 +9,7 @@ const toast = useToast();
 const service = new OrganizationService();
 
 const metaKey = ref<boolean>(true);
-const entities = ref<ITag[]>([]);
+const entities = ref<IOrganization[]>([]);
 const editingRows = ref([]);
 const deleteDialog = ref<boolean>(false);
 const newDialog = ref<boolean>(false);
