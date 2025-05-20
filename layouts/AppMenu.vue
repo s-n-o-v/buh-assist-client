@@ -35,7 +35,7 @@ const model = ref([
             {
                 label: 'Федеральные органы',
                 icon: 'pi pi-fw pi-globe',
-                to: '/clients'
+                to: '/organizations'
             },
             {
                 label: 'Теги',
@@ -50,7 +50,7 @@ const model = ref([
             {
                 label: 'Организации',
                 icon: 'pi pi-fw pi-circle-off',
-                to: '/organizations'
+                to: '/tax-offices'
             }
         ]
     },
