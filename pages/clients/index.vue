@@ -3,6 +3,7 @@ import { FilterMatchMode } from "@primevue/core/api";
 import ClientService from "~/service/client-service";
 
 definePageMeta({ middleware: 'auth' });
+useHead({ title: "Список клиентов" });
 
 const toast = useToast();
 const service = ClientService();

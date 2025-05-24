@@ -6,12 +6,15 @@ import AppMenuItem from './AppMenuItem.vue';
 const model = ref([
     {
         label: 'Home',
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+        items: [
+            { label: 'Dashboard', icon: 'pi pi-fw pi-chart-bar', to: '/' },
+            { label: 'Список клиентов', icon: 'pi pi-fw pi-users', to: '/clients' },
+        ],
     },
     {
-        label: 'UI Components',
+        label: 'Отчеты',
         items: [
-            { label: 'Clients', icon: 'pi pi-fw pi-id-card', to: '/clients' },
+            { label: 'Отчеты по организациям', icon: 'pi pi-fw pi-calculator', to: '/clients' },
             // { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
             // { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
             // { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
@@ -34,24 +37,29 @@ const model = ref([
         items: [
             {
                 label: 'Федеральные органы',
-                icon: 'pi pi-fw pi-globe',
+                icon: 'pi pi-fw pi-building-columns',
                 to: '/organizations'
             },
             {
-                label: 'Теги',
-                icon: 'pi pi-fw pi-pencil',
-                to: '/tags'
+                label: 'Организации',
+                icon: 'pi pi-fw pi-building',
+                to: '/tax-offices'
+            },
+            {
+                label: 'Типы отчетов',
+                icon: 'pi pi-fw pi-book',
+                to: '/tax-reports'
             },
             {
                 label: 'Сертификаты',
-                icon: 'pi pi-fw pi-exclamation-circle',
-                to: '/clients'
+                icon: 'pi pi-fw pi-id-card',
+                to: '/certs'
             },
             {
-                label: 'Организации',
-                icon: 'pi pi-fw pi-circle-off',
-                to: '/tax-offices'
-            }
+                label: 'Теги',
+                icon: 'pi pi-fw pi-tags',
+                to: '/tags'
+            },
         ]
     },
 ]);

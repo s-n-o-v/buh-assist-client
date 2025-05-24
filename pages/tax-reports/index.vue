@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { FilterMatchMode } from "@primevue/core/api";
-import { OrganizationService } from "~/service/org-service";
-import type { IOrganization } from "~/types/IOrganization";
+import { TaxReportService } from "~/service/tax-report-service";
+import type { ITaxReport } from "~/types/ITaxReport";
 
 definePageMeta({ middleware: 'auth' });
-useHead({ title: "Федеральные органы" });
+useHead({ title: "Список отчетов" });
 
 const toast = useToast();
-const service = new OrganizationService();
+const route = useRoute();
+const service = new TaxReportService();
 
 const metaKey = ref<boolean>(true);
-const entities = ref<IOrganization[]>([]);
+const entities = ref<ITaxReport[]>([]);
 const editingRows = ref([]);
 const deleteDialog = ref<boolean>(false);
-const newDialog = ref<boolean>(false);
 const newItem = ref<string>("");
 const entity = ref();
 
@@ -23,6 +23,8 @@ const entitiesMapper = (list: any) =>
     acc.push({
       id: v.id,
       name: v.name,
+      fine: v.fine,
+      // orgs: v.organizations.length,
     });
     return acc;
   }, []);
@@ -37,9 +39,7 @@ const filters = ref({
 const itemsBE = computed(() => entitiesMapper(itemsDb.data));
 entities.value = itemsBE.value;
 
-const onCreate = () => {
-  newDialog.value = true;
-};
+const onCreate = () => navigateTo("/tax-reports/add");
 const createEntity = async () => {
   const res = await service.create({ name: newItem.value});
   if (res?.data?.id) {
@@ -89,7 +89,7 @@ const deleteEntity = async (id: number) => {
       <template #start>
         <Button
           v-if="!newDialog"
-          label="Добавить организацию"
+          label="Добавить отчет"
           icon="pi pi-plus"
           severity="success"
           class="mr-2"
@@ -128,7 +128,7 @@ const deleteEntity = async (id: number) => {
       <template #empty> Данные отсутствуют. </template>
       <template #header>
         <div class="flex flex-wrap gap-2 items-center justify-between">
-          <h4 class="m-0">Список организаций</h4>
+          <h4 class="m-0">Список отчетов</h4>
           <IconField>
             <InputIcon>
               <i class="pi pi-search" />
@@ -141,12 +141,18 @@ const deleteEntity = async (id: number) => {
         </div>
       </template>
       <Column field="id" header="#" style="min-width: 30px" class="font-bold" />
-      <Column field="name" sortable header="Организация">
-        <template #editor="{ data, field }">
-          <InputText v-model="data[field]" fluid />
+      <Column field="name" sortable header="Название отчета" />
+      <Column field="fine" sortable header="Ставка" />
+      <Column :exportable="false" style="width: 55px; padding-right: 0" bodyStyle="text-align:center">
+        <template #body="slotProps">
+          <Button
+            icon="pi pi-pencil"
+            outlined
+            rounded
+            @click="confirmDelete(slotProps.data)"
+          />
         </template>
       </Column>
-      <Column :rowEditor="true" style="width: 55px; padding-right: 0" bodyStyle="text-align:center" />
       <Column :exportable="false" style="width: 55px; padding-left: 0" bodyStyle="text-align:center">
         <template #body="slotProps">
           <Button
