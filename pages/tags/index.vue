@@ -4,6 +4,7 @@ import { TagService } from "~/service/tag-service";
 import type { ITag } from "~/types/ITag";
 
 definePageMeta({ middleware: 'auth' });
+useHead({ title: "Список тегов" });
 
 const toast = useToast();
 const service = new TagService();

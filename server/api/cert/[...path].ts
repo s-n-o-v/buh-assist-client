@@ -1,9 +1,9 @@
-export default defineEventHandler<any>(async (event) => {
+export default defineEventHandler(async (event) => {
   const path = event.context.params?.path;
   const method = event.node.req.method;
   let response = null;
 
-  const url = `/organizations`;
+  const url = `/certs`;
   if (method === 'GET') {
     if (path === "list") {
       response = await fetchWithAuth(event, url);

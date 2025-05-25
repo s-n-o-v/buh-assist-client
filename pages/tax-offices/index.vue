@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { FilterMatchMode } from "@primevue/core/api";
-import { OrganizationService } from "~/service/org-service";
 import { TaxOfficeService } from "~/service/tax-office-service";
 import type { ITaxOffice } from "~/types/ITaxOffice";
 
 definePageMeta({ middleware: 'auth' });
+useHead({ title: "Список организаций" });
 
 const toast = useToast();
 const service = new TaxOfficeService();
@@ -23,6 +23,7 @@ const entitiesMapper = (list: any) =>
     acc.push({
       id: v.id,
       name: v.name,
+      org: v.organization.name,
     });
     return acc;
   }, []);
@@ -146,6 +147,7 @@ const deleteEntity = async (id: number) => {
           <InputText v-model="data[field]" fluid />
         </template>
       </Column>
+      <Column field="org" sortable header="Фед. орган" />
       <Column :rowEditor="true" style="width: 55px; padding-right: 0" bodyStyle="text-align:center" />
       <Column :exportable="false" style="width: 55px; padding-left: 0" bodyStyle="text-align:center">
         <template #body="slotProps">

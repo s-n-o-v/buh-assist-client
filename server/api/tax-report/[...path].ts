@@ -3,7 +3,7 @@ export default defineEventHandler<any>(async (event) => {
   const method = event.node.req.method;
   let response = null;
 
-  const url = `/organizations`;
+  const url = `/tax-reports`;
   if (method === 'GET') {
     if (path === "list") {
       response = await fetchWithAuth(event, url);
