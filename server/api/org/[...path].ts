@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler<any>(async (event) => {
   const path = event.context.params?.path;
   const method = event.node.req.method;
   let response = null;

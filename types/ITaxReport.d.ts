@@ -1,7 +1,7 @@
 export interface ITaxReport {
   id?: number;
   name: string;
-  tax_office_id?: number;
+  organization_id?: number;
   fine?: number;
   is_periodic?: boolean;
   report_date?: Date;

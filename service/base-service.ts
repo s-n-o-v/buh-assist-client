@@ -13,6 +13,11 @@ export abstract class BaseService<T, C = Partial<T>> {
     return data.value as T[];
   }
 
+  async getById(id: number): Promise<T> {
+    const { data: response } = await useFetch(`${this.baseUrl}/${id}`);
+    return response?.value as T;
+  }
+
   async create(body: C): Promise<T> {
     const { data: response } = await useFetch(`${this.baseUrl}/new`, { 
       method: "POST", 

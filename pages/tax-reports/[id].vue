@@ -11,6 +11,7 @@ definePageMeta({ middleware: 'auth' });
 useHead({ title: "Добавление нового типа отчета" });
 
 const toast = useToast();
+const route = useRoute();
 const service = new TaxReportService();
 const serviceOrg = new OrganizationService();
 
@@ -47,6 +48,18 @@ const state = reactive<ITaxReport>({
   report_date: undefined,
   every_month: undefined,
 });
+
+const { data } = await service.getById(+route.params.id);
+if (data) {
+  state.id = data.id;
+  state.name = data.name;
+  state.organization_id = data.organization?.id;
+  state.fine = data.fine;
+  state.is_periodic = !!data.is_periodic;
+  state.report_date = data.report_date;
+  state.every_month = data.every_month;
+  selectedOffice.value = data.organization?.id;
+}
 
 const rules = computed(() => ({
   name: { required, minLength: minLength(3) },
@@ -87,7 +100,7 @@ const onSubmit = async () => {
     return;
   }
 
-  const response = await service.create(state);
+  const response = await service.update(state);
   if (response) {
     toast.add({
       severity: "success",

@@ -53,6 +53,8 @@ const createEntity = async () => {
     await reloadData();
   }
 };
+const onEdit = (id: string | number) =>
+  navigateTo(`/tax-reports/${id}`);
 const onRowEditSave = async (event) => {
   let { newData, index } = event;
   const res = await service.update(newData);
@@ -149,7 +151,7 @@ const deleteEntity = async (id: number) => {
             icon="pi pi-pencil"
             outlined
             rounded
-            @click="confirmDelete(slotProps.data)"
+            @click="onEdit(slotProps.data.id)"
           />
         </template>
       </Column>
